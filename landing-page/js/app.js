@@ -28,9 +28,17 @@ function createNav() {
     }; 
 };
 
+function removeActiveClass() {
+    for(let i = 0; i < sections.length; i++) {
+        sections[i].classList.remove("your-active-class");
+    };
+};
+
 function respondToTheClick(evt) {
+    removeActiveClass();
     let variable = evt.target.textContent; 
     let sectionTarget = document.querySelector(`#${variable}`); 
+    sectionTarget.classList.add("your-active-class");
     sectionTarget.scrollIntoView({behavior: "smooth"});
 };
 
