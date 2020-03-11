@@ -42,8 +42,20 @@ function respondToTheClick(evt) {
     sectionTarget.scrollIntoView({behavior: "smooth"});
 };
 
+function respondToScroll() {
+    for(let i = 0; i < sections.length; i++) {
+        if(sections[i].getBoundingClientRect().top < 50 && sections[i].getBoundingClientRect().bottom > 0) {
+            sections[i].classList.add("your-active-class"); 
+        } else {
+            sections[i].classList.remove("your-active-class"); 
+        };
+    };
+};
+
+
 window.addEventListener("DOMContentLoaded", createNav);
 navbarList.addEventListener("click", respondToTheClick); 
+document.addEventListener("scroll", respondToScroll); 
 
 
 
